@@ -1,12 +1,18 @@
 import { Module } from '../core/module';
 
 export class BackgroundModule extends Module {
+	constructor(text) {
+		super('module3', text);
+	}
 
-      constructor(text) {
-        super('module3', text);
-      }
-    
-      trigger() {
-        console.log('Реализации: <Поменять цвет> ещё нет');
-      }
+	trigger() {
+		var ChangeBackground = () => {
+			document.body.style.background =
+				'#' +
+				(Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
+		};
+
+		document.addEventListener('DOMContentLoaded', ChangeBackground);
+		return ChangeBackground();
+	}
 }
