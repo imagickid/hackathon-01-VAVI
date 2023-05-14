@@ -3,14 +3,12 @@ import { Menu } from './core/menu';
 export class ContextMenu extends Menu {
 	constructor(selector) {
 		super(selector);
-
 		document.addEventListener('contextmenu', (event) => {
 			event.preventDefault();
 			this.open(event.clientX, event.clientY);
 		});
 	}
 	open(x, y) {
-		console.log(this.el);
 		this.el.style.left = `${this.calculateXPosition(x)}px`;
 		this.el.style.top = `${this.calculateYPosition(y)}px`;
 		this.el.classList.add('open');
