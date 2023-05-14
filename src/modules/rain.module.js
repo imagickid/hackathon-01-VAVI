@@ -6,7 +6,7 @@ import { timeout } from '../helper';
 
 export class RainModule extends Module {
 	constructor(text) {
-		super('module5', text);
+		super('rainModule', text);
 		this.container = document.querySelector('body');
 	}
 

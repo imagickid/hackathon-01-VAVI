@@ -1,11 +1,19 @@
 import { Module } from '../core/module';
+import { timeout } from '../helper';
 
 export class TimeNowModule extends Module {
 	constructor(text) {
-		super('module8', text);
+		super('timeModule', text);
+		this.container = document.querySelector('body');
 	}
 
 	trigger() {
+		if (document.querySelector('#canvas')) document.querySelector('#canvas').remove();
+		const html = `
+		<canvas id="canvas" width="150" height="150"></canvas>
+		`;
+		this.container.insertAdjacentHTML('beforeend', html);
+
 		function watch() {
 			const now = new Date();
 			const ctx = document.querySelector('#canvas').getContext('2d');
@@ -15,7 +23,7 @@ export class TimeNowModule extends Module {
 			ctx.scale(0.4, 0.4);
 			ctx.fillStyle = 'green';
 
-      ctx.font = "21px Georgia";
+			ctx.font = '21px Georgia';
 			ctx.fillText('Result School', -60, -50);
 			ctx.rotate(-Math.PI / 2);
 			ctx.strokeStyle = 'black';
@@ -101,6 +109,7 @@ export class TimeNowModule extends Module {
 			ctx.restore();
 
 			window.requestAnimationFrame(watch);
+			timeout(document.querySelector('#canvas'));
 		}
 
 		window.requestAnimationFrame(watch);

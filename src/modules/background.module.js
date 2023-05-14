@@ -1,6 +1,5 @@
 import { Module } from '../core/module';
 import { randomColor } from '../helper';
-import { timeout } from '../helper';
 
 export class BackgroundModule extends Module {
 	constructor(text) {
