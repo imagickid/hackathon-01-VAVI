@@ -9,6 +9,8 @@ export class FreeShape extends Module {
 	}
 
 	trigger() {
+		document.querySelector('svg').innerHTML = '';
+
 		let n = 5;
 		let f = 1.5;
 		let color =
