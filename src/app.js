@@ -8,7 +8,7 @@ import { ShowMessageModule } from './modules/showMessage.module';
 import { RainModule } from './modules/rain.module';
 import { JokeModule } from './modules/getJoke.module';
 import { WeatherModule } from './modules/showWeather.module';
-import { TimeNowdModule } from './modules/timeNow.module';
+import { TimeNowModule as TimeNowModule } from './modules/timeNow.module';
 
 const menu = new ContextMenu('.menu');
 const countlicks = new ClicksModule('Считать клики (за 3 секунды)');
@@ -18,7 +18,7 @@ const showMessage = new ShowMessageModule('Вызвать сообщение');
 const rainDrops = new RainModule('Вызвать дождь на 5 секунд');
 const getJoke = new JokeModule('Рандомный DadJoke');
 const showWeather = new WeatherModule('Показать погоду');
-const timeNow = new TimeNowdModule('Который час?');
+const timeNow = new TimeNowModule('Который час?');
 
 menu.add(countlicks);
 menu.add(showPiano);

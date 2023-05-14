@@ -1,6 +1,6 @@
 import { Module } from '../core/module';
 
-export class TimeNowdModule extends Module {
+export class TimeNowModule extends Module {
 	constructor(text) {
 		super('module8', text);
 	}
