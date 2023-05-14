@@ -166,8 +166,8 @@ export class Game extends Module {
 				this.gameBody.append(finishGame);
 				setTimeout(() => {
 					this.gameBody.classList.remove('open');
-          location.reload();
-				}, 1000);
+					location.reload();
+				}, 3000);
 			}
 		}, 1000);
 	}

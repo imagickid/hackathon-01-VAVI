@@ -5,8 +5,9 @@ export class PianoModule extends Module {
 	constructor(text) {
 		super('pianoModule', text);
 		this.container = document.querySelector('body');
+		this.pianoContainer = document.createElement('div');
+		this.pianoContainer.classList.add('piano-container', 'game-body');
 		this.piano = `
-		<div class="piano-container">
 			<button class="close-piano-btn">x</button>
 			<h1>Press keyboard to play piano</h1>
 				<div class="piano">
@@ -19,18 +20,17 @@ export class PianoModule extends Module {
 					<div class="pianoKey" data-key="l">L</div>
 					<div class="pianoKey" data-key=";">;</div>
 				</div>
-	 	 </div>
-		`;
+				`;
+		this.pianoContainer.insertAdjacentHTML('beforeend', this.piano);
+		this.container.append(this.pianoContainer);
 	}
 
 	trigger() {
-		this.container.insertAdjacentHTML('beforeend', this.piano);
+		this.pianoContainer.classList.remove('game-body');
 		const btn = document.querySelector('.close-piano-btn');
-		const container = document.querySelector('.piano-container');
 
 		window.addEventListener('keydown', function (e) {
 			const key = document.querySelector(`.pianoKey[data-key="${e.key}"]`);
-			console.log(key);
 			if (!key) return;
 
 			const pressedKey = Object.entries(pianoKeyAudio).filter((obj) => {
@@ -53,7 +53,7 @@ export class PianoModule extends Module {
 		});
 
 		btn.addEventListener('click', () => {
-			container.remove();
+			this.pianoContainer.classList.add('game-body');
 		});
 	}
 }
