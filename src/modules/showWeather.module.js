@@ -57,9 +57,6 @@ export class WeatherModule extends Module {
 	}
 
 	async #displayWeather() {
-		const loader = document.querySelector('#loader');
-		loader.classList.remove('hiden');
-
 		try {
 			const weather = await this.#getWeather();
 			
@@ -76,9 +73,7 @@ export class WeatherModule extends Module {
 			description.textContent = weather.weather[0].main;
 		} catch (error) {
 			console.log(error);
-		} finally {
-			loader.classList.add('hiden');
-		}
+		} 
 	}
 
 	#handleClose() {
