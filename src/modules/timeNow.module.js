@@ -13,9 +13,13 @@ export class TimeNowModule extends Module {
 			ctx.clearRect(0, 0, 150, 150);
 			ctx.translate(75, 75);
 			ctx.scale(0.4, 0.4);
+			ctx.fillStyle = 'green';
+
+      ctx.font = "21px Georgia";
+			ctx.fillText('Result School', -60, -50);
 			ctx.rotate(-Math.PI / 2);
 			ctx.strokeStyle = 'black';
-			ctx.fillStyle = 'white';
+			ctx.fillStyle = 'black';
 			ctx.lineWidth = 8;
 			ctx.lineCap = 'round';
 
