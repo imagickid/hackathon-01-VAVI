@@ -4,7 +4,7 @@ export const randomColor = () => {
 
 export const timeout = (element) =>
 	setTimeout(() => {
-		element.remove();
+		element.classList.add('hiden');
 	}, 5000);
 
 export const randomParams = () => {
