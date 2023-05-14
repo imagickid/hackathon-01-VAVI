@@ -10,7 +10,6 @@ export class ContextMenu extends Menu {
 		});
 	}
 	open(x, y) {
-		console.log(this.el);
 		this.el.style.left = `${this.calculateXPosition(x)}px`;
 		this.el.style.top = `${this.calculateYPosition(y)}px`;
 		this.el.classList.add('open');

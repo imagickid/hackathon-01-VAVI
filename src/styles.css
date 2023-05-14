@@ -40,3 +40,125 @@ body {
 .menu .menu-item:hover {
 	background: #343434;
 }
+
+.box {
+	display: flex;
+	justify-content: center;
+}
+
+.box.open,
+.box.open .box-overlay,
+.box.hide,
+.box.hide .box-overlay {
+	opacity: 1;
+	z-index: 1000;
+}
+
+@keyframes scaleIn {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes scaleOut {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+	}
+}
+
+.box.open .weather-box {
+	animation-delay: 100;
+	animation: scaleIn 0.3s ease-in-out forwards;
+}
+
+.box.open .box-overlay {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.box.hide .weather-box {
+	animation: scaleOut 0.3s ease-in-out forwards;
+}
+
+.box.hide .box-overlay {
+	background: rgba(0, 0, 0, 0);
+}
+
+.box,
+.box-overlay {
+	opacity: 0;
+	z-index: -1;
+}
+
+.box-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0);
+	transition: background 0.3s ease-in;
+}
+
+.weather-box {
+	width: 250px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	margin: 150px auto;
+	padding: 10px;
+}
+
+.box-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.box-title {
+	font-size: 1rem;
+}
+
+.close {
+	color: #ccc;
+	font-size: 1.5rem;
+	cursor: pointer;
+	transition: 0.3s ease-in;
+}
+
+.close:hover {
+	color: #000;
+}
+
+.box-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.box-body p {
+	margin: 10px 0;
+}
+
+.icon {
+	width: 150px;
+}
+
+.temperature {
+	font-size: 2.5rem;
+}
+
+.description {
+	font-size: 1.5rem;
+}
+
+.hiden {
+	display: none;
+}
