@@ -262,3 +262,183 @@ h1 {
 	border-color: #06a2eb;
 	box-shadow: 0 0 1rem #02b3e9;
 }
+
+.section-timer__img,
+.image-patrons,
+.image-hits {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin-right: 10px;
+}
+
+.game-body {
+	display: none;
+}
+
+.game-body.open {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	
+}
+
+.main {
+	width: 100%;
+	height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.section-click {
+  display: none;
+}
+
+.section-click.open {
+  display: block;
+}
+
+.form-timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.form-timer__text {
+  font-size: 3rem;
+  color: rgb(143, 7, 9);
+  margin: 10px 0;
+}
+
+.form-timer input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(143, 7, 9);
+  transition: 0.2s ease-in;
+}
+
+.form-timer input:focus {
+  outline: none;
+  border: 1px solid rgb(143, 7, 9);
+}
+
+.form-timer input:hover {
+  background: #eee;
+}
+
+.btn {
+  margin: 10px 0;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(143, 7, 9);
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.bot-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bot-panel p {
+  font-size: 2rem;
+}
+
+.counters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-timer,
+.shoots,
+.hits {
+  position: relative;
+  display: inline-block;
+}
+
+.section-timer__text,
+.shoots-text,
+.hits-text {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 35%;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.bang {
+  position: absolute;
+  opacity: .3;
+  animation: animation .7s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes animation {
+  0% {
+    opacity: .5;
+    transform: scale3d(.5, .5, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.airplane {
+  position: absolute;
+  z-index: 10;
+  background-position: center;
+  background-size: cover;
+  outline: none;
+}
+
+.airplane:hover {
+  cursor: url('../src/assets/cursor.png'), pointer;
+}
+
+.none-select {
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.finish-game {
+	position: absolute;
+  width: 400px;
+  margin: 250px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 2.5rem;
+  color: rgb(143, 7, 9);
+  text-align: center;
+}
