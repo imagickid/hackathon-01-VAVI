@@ -6,10 +6,9 @@ export class TimeNowdModule extends Module {
 	}
 
 	trigger() {
-		function clock() {
+		function watch() {
 			const now = new Date();
-			const canvas = document.getElementById('canvas');
-			const ctx = canvas.getContext('2d');
+			const ctx = document.querySelector('#canvas').getContext('2d');
 			ctx.save();
 			ctx.clearRect(0, 0, 150, 150);
 			ctx.translate(75, 75);
@@ -20,7 +19,6 @@ export class TimeNowdModule extends Module {
 			ctx.lineWidth = 8;
 			ctx.lineCap = 'round';
 
-			// Hour marks
 			ctx.save();
 			for (let i = 0; i < 12; i++) {
 				ctx.beginPath();
@@ -31,7 +29,6 @@ export class TimeNowdModule extends Module {
 			}
 			ctx.restore();
 
-			// Minute marks
 			ctx.save();
 			ctx.lineWidth = 5;
 			for (let i = 0; i < 60; i++) {
@@ -45,52 +42,47 @@ export class TimeNowdModule extends Module {
 			}
 			ctx.restore();
 
-			const sec = now.getSeconds();
-			const min = now.getMinutes();
-			const hr = now.getHours() % 12;
+			const second = now.getSeconds();
+			const minute = now.getMinutes();
+			const hour = now.getHours() % 12;
 
 			ctx.fillStyle = 'black';
 
-			// Write image description
-			canvas.innerText = `The time is: ${hr}:${min}`;
-
-			// Write Hours
 			ctx.save();
 			ctx.rotate(
-				(Math.PI / 6) * hr + (Math.PI / 360) * min + (Math.PI / 21600) * sec,
+				(Math.PI / 6) * hour +
+					(Math.PI / 360) * minute +
+					(Math.PI / 21600) * second,
 			);
 			ctx.lineWidth = 14;
 			ctx.beginPath();
-			ctx.moveTo(-20, 0);
-			ctx.lineTo(80, 0);
-			ctx.stroke();
-			ctx.restore();
-
-			// Write Minutes
-			ctx.save();
-			ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
-			ctx.lineWidth = 10;
-			ctx.beginPath();
-			ctx.moveTo(-28, 0);
-			ctx.lineTo(112, 0);
-			ctx.stroke();
-			ctx.restore();
-
-			// Write seconds
-			ctx.save();
-			ctx.rotate((sec * Math.PI) / 30);
-			ctx.strokeStyle = '#D40000';
-			ctx.fillStyle = '#D40000';
-			ctx.lineWidth = 6;
-			ctx.beginPath();
 			ctx.moveTo(-30, 0);
-			ctx.lineTo(83, 0);
+			ctx.lineTo(70, 0);
+			ctx.stroke();
+			ctx.restore();
+
+			ctx.save();
+			ctx.rotate((Math.PI / 30) * minute + (Math.PI / 1800) * second);
+			ctx.lineWidth = 12;
+			ctx.beginPath();
+			ctx.moveTo(-40, 0);
+			ctx.lineTo(100, 0);
+			ctx.stroke();
+			ctx.restore();
+
+			ctx.save();
+			ctx.rotate((second * Math.PI) / 30);
+			ctx.strokeStyle = 'red';
+			ctx.lineWidth = 8;
+			ctx.beginPath();
+			ctx.moveTo(-50, 0);
+			ctx.lineTo(120, 0);
 			ctx.stroke();
 			ctx.beginPath();
 			ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
 			ctx.fill();
 			ctx.beginPath();
-			ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+			ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
 			ctx.stroke();
 			ctx.fillStyle = 'rgba(0, 0, 0, 0)';
 			ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
@@ -98,16 +90,15 @@ export class TimeNowdModule extends Module {
 			ctx.restore();
 
 			ctx.beginPath();
-			ctx.lineWidth = 14;
-			ctx.strokeStyle = '#325FA2';
+			ctx.lineWidth = 25;
+			ctx.strokeStyle = 'darkblue';
 			ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
 			ctx.stroke();
-
 			ctx.restore();
 
-			window.requestAnimationFrame(clock);
+			window.requestAnimationFrame(watch);
 		}
 
-		window.requestAnimationFrame(clock);
+		window.requestAnimationFrame(watch);
 	}
 }
