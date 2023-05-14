@@ -3,7 +3,7 @@ import { pianoKeyAudio } from '../utils';
 
 export class PianoModule extends Module {
 	constructor(text) {
-		super('module2', text);
+		super('pianoModule', text);
 		this.container = document.querySelector('body');
 	}
 
