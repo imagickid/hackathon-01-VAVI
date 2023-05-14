@@ -49,6 +49,7 @@ export class PianoModule extends Module {
 
 		window.addEventListener('keyup', (e) => {
 			const key = document.querySelector(`.pianoKey[data-key="${e.key}"]`);
+			if (!key) return;
 			key.classList.remove('pressed');
 		});
 
